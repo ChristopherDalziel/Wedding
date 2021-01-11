@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { startLogin } from "./actions/auth"
 
 const App = () => {
   const [input, setInput] = useState("")
@@ -9,7 +11,7 @@ const App = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log(input)
+    startLogin("christopher_dalziel@hotmail.com", input)
   }
 
   return <main>
@@ -19,4 +21,8 @@ const App = () => {
   </main>
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  startLogin: () => dispatch(startLogin())
+})
+
+export default connect(mapDispatchToProps)(App)

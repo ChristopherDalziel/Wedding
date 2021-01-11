@@ -1,5 +1,8 @@
-import * as firebase from "firebase";
-import "firebase/storage";
+// import * as firebase from "firebase";
+// import "firebase/storage";
+
+import firebase from 'firebase'
+import 'firebase/storage'
 
 // Firebase config
 const firebaseConfig = {
@@ -25,5 +28,8 @@ const storage = firebase.storage();
 // Google Authentication
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
+// Email auth?
+const emailPasswordAuthProvider = firebase.auth()
+
 // Exporting firebase for use within our application
-export { firebase, googleAuthProvider, storage, database as default };
+export { firebase, emailPasswordAuthProvider, googleAuthProvider, storage, database as default };
